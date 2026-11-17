@@ -1,0 +1,10 @@
+{
+  "pages": ["pages/title/index"],
+  "window": {
+    "navigationBarTitleText": "报数",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f7f7f7",
+    "backgroundTextStyle": "dark"
+  }
+}

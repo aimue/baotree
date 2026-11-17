@@ -1,0 +1,12 @@
+{
+  "name": "baotree",
+  "version": "0.1.0",
+  "private": true,
+  "description": "原生微信小程序：活动标题输入与本页预览",
+  "type": "commonjs",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "check": "node scripts/check-project.cjs"
+  }
+}

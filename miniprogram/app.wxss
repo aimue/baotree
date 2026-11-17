@@ -1,0 +1,27 @@
+page {
+  --color-page: #f7f7f7;
+  --color-surface: #ffffff;
+  --color-text: #191919;
+  --color-secondary: #666666;
+  --color-border: #d9d9d9;
+  --font-body: 16px;
+  --line-body: 24px;
+  --font-note: 14px;
+  --line-note: 22px;
+  --weight-body: 400;
+  --weight-label: 600;
+  --space-small: 8px;
+  --space-medium: 16px;
+  --space-large: 24px;
+  --space-section: 32px;
+  --radius: 8px;
+  --border-width: 1px;
+  --input-height: 52px;
+  --preview-min-height: 88px;
+  min-height: 100%;
+  background: var(--color-page);
+  color: var(--color-text);
+  font-size: var(--font-body);
+  line-height: var(--line-body);
+  font-weight: var(--weight-body);
+}

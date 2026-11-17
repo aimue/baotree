@@ -1,0 +1,8 @@
+{
+  "projectname": "baotree",
+  "compileType": "miniprogram",
+  "miniprogramRoot": "miniprogram/",
+  "setting": {
+    "es6": true
+  }
+}

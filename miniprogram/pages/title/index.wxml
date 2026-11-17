@@ -1,0 +1,23 @@
+<view class="page-content">
+  <label class="field-label" for="activity-title" bindtap="onLabelTap">活动标题</label>
+  <input
+    id="activity-title"
+    class="title-input {{focused ? 'title-input--focused' : ''}}"
+    type="text"
+    value="{{title}}"
+    maxlength="-1"
+    focus="{{focused}}"
+    bindinput="onTitleInput"
+    bindfocus="onTitleFocus"
+    bindblur="onTitleBlur"
+  />
+  <text class="note preview-notice">仅当前页面预览，不会保存。</text>
+
+  <view class="preview-section">
+    <text class="field-label">原文预览</text>
+    <view class="preview-surface">
+      <text wx:if="{{title === ''}}" class="note">尚未输入活动标题。</text>
+      <text wx:else class="preview-title">{{title}}</text>
+    </view>
+  </view>
+</view>
