@@ -12,6 +12,7 @@ const template = 'miniprogram/pages/title/index.wxml';
 function replace(directory, path, before, after) {
   const file = join(directory, path);
   const source = readFileSync(file, 'utf8').replace(/\r\n/g, '\n');
+  before = before.replace(/\r\n/g, '\n');
   assert.equal(source.split(before).length, 2, `变异锚点必须唯一：${before}`);
   writeFileSync(file, source.replace(before, after));
 }
