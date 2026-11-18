@@ -61,7 +61,7 @@ function elements(tag) {
 }
 check('原文输入、独立空态和普通文本预览约定', () => {
   const inputs = elements('input');
-  assert.equal(inputs.length, 1, '必须保留唯一生效的原生输入控件');
+  assert.equal(inputs.length, 1, '注释之外必须保留唯一原生输入标签');
   for (const [name, value] of Object.entries({
     id: 'activity-title', type: 'text', value: '{{title}}', maxlength: '-1',
     bindinput: 'onTitleInput', focus: '{{focused}}',

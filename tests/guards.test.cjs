@@ -2,6 +2,7 @@
 const assert = require('node:assert/strict');
 const { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync, unlinkSync } = require('node:fs');
 const { join, resolve } = require('node:path');
+const { tmpdir } = require('node:os');
 const { spawnSync } = require('node:child_process');
 const { test } = require('node:test');
 
@@ -10,13 +11,14 @@ const page = 'miniprogram/pages/title/index.js';
 const template = 'miniprogram/pages/title/index.wxml';
 function replace(directory, path, before, after) {
   const file = join(directory, path);
-  const source = readFileSync(file, 'utf8');
+  const source = readFileSync(file, 'utf8').replace(/\r\n/g, '\n');
   assert.equal(source.split(before).length, 2, `变异锚点必须唯一：${before}`);
   writeFileSync(file, source.replace(before, after));
 }
 function fixture(run) {
-  // 不使用 os.tmpdir()，避免宿主默认 /tmp；测试副本只放在 /var/tmp。
-  const directory = mkdtempSync('/var/tmp/baotree-guards-');
+  // Linux/macOS 使用 /var/tmp；Windows 使用系统临时目录。
+  const parent = process.platform === 'win32' ? tmpdir() : '/var/tmp';
+  const directory = mkdtempSync(join(parent, 'baotree-guards-'));
   try {
     for (const path of ['miniprogram', 'scripts', 'project.config.json', 'package.json']) {
       cpSync(join(root, path), join(directory, path), { recursive: true });
